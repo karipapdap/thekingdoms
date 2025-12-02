@@ -3,193 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Kingdoms</title>
+    <title>The Kingdoms – Official Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             color: #f5f5f5;
             background-color: #0b0b0b;
         }
 
+        /* ===================== NAVIGATION ===================== */
+        nav {
+            width: 100%;
+            background: rgba(0,0,0,0.75);
+            padding: 15px 40px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(6px);
+        }
+
+        nav .logo {
+            font-family: 'Press Start 2P', cursive;
+            color: #ffd700;
+            font-size: 1.1em;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* ===================== HEADER ===================== */
         header {
             position: relative;
             height: 100vh;
-            background: url('https://media.discordapp.net/attachments/1400465644893376526/1439270821972414635/ddcd9605-2521-4c8b-adb2-9809d96f2add.jpeg?ex=692fa9a8&is=692e5828&hm=5f0881cf101fa80e9012eb36c16ea2ba0764c636ecf255823a6d64338c663812&=&format=webp&width=928&height=522') no-repeat center center/cover;
+            background: url('https://media.discordapp.net/attachments/1400465644893376526/1439270821972414635/ddcd9605-2521-4c8b-adb2-9809d96f2add.jpeg') no-repeat center/cover;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            padding-top: 80px;
             text-align: center;
-            overflow: hidden;
         }
 
         header::after {
             content: "";
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            inset: 0;
             background: rgba(0,0,0,0.6);
+        }
+
+        header h1, header p {
+            z-index: 1;
+            animation: fadeInUp 1.2s ease forwards;
+            opacity: 0;
         }
 
         header h1 {
             font-family: 'Press Start 2P', cursive;
             font-size: 3em;
             color: #ffd700;
-            z-index: 1;
             margin-bottom: 20px;
+            animation-delay: 0.4s;
         }
 
         header p {
             font-size: 1.2em;
             max-width: 700px;
-            z-index: 1;
             line-height: 1.6;
+            animation-delay: 0.7s;
         }
 
-        main {
-            padding: 60px 20px;
+        /* ===================== ANIMATION ===================== */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.8s ease-out;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===================== SECTION UNIVERSAL ===================== */
+        section {
+            padding: 80px 20px;
             text-align: center;
-            background-color: #121212;
         }
 
-        main h2 {
-            font-size: 2em;
+        h2 {
+            font-size: 2.2em;
             color: #ff9900;
             margin-bottom: 20px;
         }
 
-        main p {
+        p {
             font-size: 1.1em;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
+            max-width: 850px;
+            margin: auto;
             line-height: 1.6;
         }
 
-        .button {
-            display: inline-block;
-            background-color: #ff9900;
-            color: #1a1a1a;
-            padding: 15px 35px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            font-size: 1em;
-        }
-
-        .button:hover {
-            background-color: #ffd700;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #ffd700;
-        }
-
-        /* Founder Section */
+        /* ===================== FOUNDER SECTION ===================== */
         .founders {
-            background-color: ##EFBF04;
+            background: #EFBF04;
             color: #111;
-            padding: 60px 20px;
-        }
-
-        .founders h2 {
-            color: #111;
-            margin-bottom: 40px;
         }
 
         .founder-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
             gap: 40px;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
         }
 
         .founder-card {
-            background-color: #fff;
+            background: #fff;
             border-radius: 15px;
-            overflow: hidden;
             padding: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
+            transition: 0.3s;
         }
-
         .founder-card:hover {
             transform: translateY(-10px);
         }
-
         .founder-card img {
             width: 100%;
             border-radius: 15px;
             margin-bottom: 20px;
         }
 
-        .founder-card h3 {
+        /* ===================== NEWS SECTION ===================== */
+        .news-box {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            gap: 25px;
+        }
+
+        .news-card {
+            padding: 20px;
+            border-left: 5px solid #ff9900;
+            background: #1a1a1a;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .news-card h3 {
+            color: #ffd700;
             margin-bottom: 10px;
         }
 
-        .founder-card p {
-            font-size: 0.95em;
-            line-height: 1.5;
+        /* ===================== COMMUNITY SECTION ===================== */
+        .community-icons {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .community-icons a {
+            font-size: 1.3em;
+            background: #ff9900;
+            padding: 12px 30px;
+            border-radius: 10px;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .community-icons a:hover {
+            background: #ffd700;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #ffd700;
+        }
+
+        /* ===================== CONTACT SECTION ===================== */
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            text-align: left;
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #ff9900;
         }
 
         footer {
-            background-color: #111;
-            padding: 20px;
+            background: #111;
+            padding: 25px;
             text-align: center;
-            font-size: 0.9em;
             color: #aaa;
         }
-    
     </style>
 </head>
 <body>
-    <header>
-        <h1>Membina, Bertahan, Bersejarah</h1>
-        <p>Jejak Sejarah The Kingdoms – Permulaan Pengembaraan yang Membentuk Legasi<br>
-        The Kingdoms bukan sekadar server biasa. Ia adalah tempat di mana pemain berkumpul, membina keajaiban, dan mencipta sejarah bersama. Bermula sebagai sebuah projek kecil, kini ia berkembang menjadi komuniti yang penuh dengan cerita menarik.</p>
-        
-  </header>
 
-        <!-- Founder Section -->
-<section class="founders">
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">THE KINGDOMS</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HOME -->
+<header id="home">
+    <h1>Membina, Bertahan, Bersejarah</h1>
+    <p>The Kingdoms bukan sekadar server biasa — ia adalah dunia di mana pemain membina keajaiban, mencipta sejarah dan mengembangkan legasi.</p>
+</header>
+
+<!-- FOUNDER -->
+<section class="founders fade-in">
     <h2>Founder The Kingdoms</h2>
+
     <div class="founder-grid">
         <div class="founder-card">
-            <a href="https://linktr.ee/pipit_k" target="_blank">
-                <img src="https://cdn.discordapp.com/attachments/1221154413746589826/1445396732182532208/23weDu2GLzs7KKxX1CzeREmZi8HxdBPS6sYGUv66F1fP2vDDZRnLstx12CTCv8Kr.jpg?ex=6930321b&is=692ee09b&hm=c6bf596d870f0e7740afa01b73cb9365998c4251c2a887eee5aed332dcfc6e06&" alt=pipit_kkkkkk">
-            </a>
+            <img src="https://cdn.discordapp.com/attachments/1221154413746589826/1445396732182532208/23weDu2GLzs7KKxX1CzeREmZi8HxdBPS6sYGUv66F1fP2vDDZRnLstx12CTCv8Kr.jpg" alt="pipit_kkkkkk">
             <h3>pipit_kkkkkk</h3>
-            <p>Mengurus komuniti pemain dengan memastikan komunikasi yang lancar, menyelesaikan konflik dengan adil, dan mewujudkan suasana permainan yang harmoni serta menyeronokkan untuk semua.</p>
+            <p>Mengurus komuniti serta memastikan suasana harmoni untuk pemain.</p>
         </div>
+
         <div class="founder-card">
-            <a href="https://linktr.ee/karipapdap" target="_blank">
-                <img src="https://cdn.discordapp.com/attachments/1221154413746589826/1445396720191279184/dKMGF9uodkGmOMA3EZin0aUhZjHMpKThBhmBqsXcumxPmr1670EG3jKp4s75Hzrg.jpg?ex=69303218&is=692ee098&hm=b31caf18743280ab4b30eb091c0cc9fbbd017d28e01239f48ba36836fcc0b894&" alt="Karipapdap">
-            </a>
+            <img src="https://cdn.discordapp.com/attachments/1221154413746589826/1445396720191279184/dKMGF9uodkGmOMA3EZin0aUhZjHMpKThBhmBqsXcumxPmr1670EG3jKp4s75Hzrg.jpg" alt="Karipapdap">
             <h3>Karipapdap</h3>
-            <p>Bertanggungjawab dalam pengurusan teknikal The Kingdoms, termasuk penyelenggaraan server, pengoptimuman prestasi, dan penyelesaian masalah teknikal.</p>
+            <p>Pengurusan teknikal server, prestasi, backup dan penyelenggaraan.</p>
         </div>
+
         <div class="founder-card">
-            <a href="https://linktr.ee/ElianaRiqma" target="_blank">
-                <img src="https://cdn.discordapp.com/attachments/1221154413746589826/1445396704982732840/24jI74PNnicS6NgVZfeXf5x5oxHzhQNGKp7qKkUR5a8W5tHsAv0UmeTfms3sNACP.jpg?ex=69303214&is=692ee094&hm=8e44919b4b444298d31b22b824da56c84226ce2f42d41cd06e48f2bfaa186241&" alt="ElianaRiqma">
-            </a>
+            <img src="https://cdn.discordapp.com/attachments/1221154413746589826/1445396704982732840/24jI74PNnicS6NgVZfeXf5x5oxHzhQNGKp7qKkUR5a8W5tHsAv0UmeTfms3sNACP.jpg" alt="ElianaRiqma">
             <h3>ElianaRiqma</h3>
-            <p>Menyaring dan memasukkan pemain baharu ke dalam The Kingdoms, memastikan hanya mereka yang benar-benar berminat dan bersedia untuk menjadi sebahagian daripada komuniti kami.</p>
+            <p>Penyaringan dan kemasukan pemain baharu melalui sistem dua fasa.</p>
         </div>
     </div>
 </section>
 
+<!-- NEWS -->
+<section id="news" class="fade-in">
+    <h2>Berita Terkini</h2>
+    <div class="news-box">
 
-        </footer>
+        <div class="news-card">
+            <h3>📢 Server Update v2.1 – Dunia Baru Dibuka!</h3>
+            <p>- Biome baharu ditambah<br>
+            - Sistem ekonomi diperbaiki<br>
+            - Pengoptimuman lag chunk</p>
+        </div>
+
+        <div class="news-card">
+            <h3>👑 The Kingdoms S2 – Pendaftaran Dibuka</h3>
+            <p>Pemain baharu boleh memohon melalui Discord sebelum tarikh tutup.</p>
+        </div>
+
+        <div class="news-card">
+            <h3>⚙️ Maintenance Berjadual</h3>
+            <p>Server akan dihentikan buat sementara untuk kerja baik pulih prestasi.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community" class="fade-in">
+    <h2>Komuniti The Kingdoms</h2>
+    <p>Sertai ribuan pemain yang aktif membina dunia unik mereka.</p>
+
+    <div class="community-icons">
+        <a href="https://discord.gg" target="_blank">Discord</a>
+        <a href="https://karipapdap.github.io/thekingdoms-store/" target="_blank">Store</a>
+        <a href="https://www.youtube.com" target="_blank">YouTube</a>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
+    <h2>Hubungi Kami</h2>
+
+    <div class="contact-box">
+        <p><b>Email:</b> thekingdoms@gmail.com<br><br>
+        <b>Discord:</b> Karipapdap / pipit_kkkkkk / ElianaRiqma<br><br>
+        <b>Permohonan Server S2:</b> Melalui sistem tiket di Discord</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2025 The Kingdoms. Semua hak cipta terpelihara.
+</footer>
+
+<script>
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+
+    function showOnScroll() {
+        faders.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < window.innerHeight - 100) {
+                el.classList.add("show");
+            }
+        });
+    }
+    window.addEventListener("scroll", showOnScroll);
+    showOnScroll();
+</script>
+
 </body>
 </html>
-
-    <main>
-        <h2>Mulakan Pengembaraan Anda!</h2>
-        <p>Daftar sekarang dan sertai ribuan pemain lain dalam membina dunia unik anda sendiri. Terokai, bertahan, dan cipta sejarah anda di The Kingdoms.</p>
-        <a href="https://discord.gg" class="button">Sertai Discord Kami</a>
-    </main>
-
-    <footer>
-        &copy; 2025 The Kingdoms. Semua hak cipta terpelihara.
-
