@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Kingdoms</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #f5f5f5;
+            background-color: #0b0b0b;
+        }
+
+        header {
+            position: relative;
+            height: 100vh;
+            background: url('https://i.imgur.com/qj3K2bF.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+        }
+
+        header h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3em;
+            color: #ffd700;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            max-width: 700px;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        main {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #121212;
+        }
+
+        main h2 {
+            font-size: 2em;
+            color: #ff9900;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #ff9900;
+            color: #1a1a1a;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        .button:hover {
+            background-color: #ffd700;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #ffd700;
+        }
+
+        footer {
+            background-color: #111;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        /* Animasi teks masuk */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        header h1, header p {
+            animation: fadeInUp 1s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Membina, Bertahan, Bersejarah</h1>
+        <p>Jejak Sejarah The Kingdoms – Permulaan Pengembaraan yang Membentuk Legasi<br>
+        The Kingdoms bukan sekadar server biasa. Ia adalah tempat di mana pemain berkumpul, membina keajaiban, dan mencipta sejarah bersama. Bermula sebagai sebuah projek kecil, kini ia berkembang menjadi komuniti yang penuh dengan cerita menarik.</p>
+    </header>
+
+    <main>
+        <h2>Mulakan Pengembaraan Anda!</h2>
+        <p>Daftar sekarang dan sertai ribuan pemain lain dalam membina dunia unik anda sendiri. Terokai, bertahan, dan cipta sejarah anda di The Kingdoms.</p>
+        <a href="https://discord.gg/b3ba2qAcwa" class="button">Sertai Discord Kami</a>
+    </main>
+
+    <footer>
+        &copy; 2025 The Kingdoms. Semua hak cipta terpelihara.
+    </footer>
+</body>
+</html>
