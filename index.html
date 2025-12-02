@@ -85,22 +85,60 @@
             box-shadow: 0 0 20px #ffd700;
         }
 
+        /* Founder Section */
+        .founders {
+            background-color: #f5f5f5;
+            color: #111;
+            padding: 60px 20px;
+        }
+
+        .founders h2 {
+            color: #111;
+            margin-bottom: 40px;
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .founder-card {
+            background-color: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .founder-card img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .founder-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .founder-card p {
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
         footer {
             background-color: #111;
             padding: 20px;
             text-align: center;
             font-size: 0.9em;
             color: #aaa;
-        }
-
-        /* Animasi teks masuk */
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        header h1, header p {
-            animation: fadeInUp 1s ease forwards;
         }
     </style>
 </head>
@@ -116,6 +154,28 @@
         <p>Daftar sekarang dan sertai ribuan pemain lain dalam membina dunia unik anda sendiri. Terokai, bertahan, dan cipta sejarah anda di The Kingdoms.</p>
         <a href="https://discord.gg/b3ba2qAcwa" class="button">Sertai Discord Kami</a>
     </main>
+
+    <!-- Founder Section -->
+    <section class="founders">
+        <h2>Founder The Kingdoms</h2>
+        <div class="founder-grid">
+            <div class="founder-card">
+                <img src="https://i.imgur.com/ebeadea4-c10e-4045-adfd-fea0d88719fb.png" alt="pit_pit">
+                <h3>pit_pit</h3>
+                <p>Mengurus komuniti pemain dengan memastikan komunikasi yang lancar, menyelesaikan konflik dengan adil, dan mewujudkan suasana permainan yang harmoni serta menyeronokkan untuk semua.</p>
+            </div>
+            <div class="founder-card">
+                <img src="https://i.imgur.com/ebeadea4-c10e-4045-adfd-fea0d88719fb.png" alt="Karipapdap">
+                <h3>Karipapdap</h3>
+                <p>Bertanggungjawab dalam pengurusan teknikal The Kingdoms, termasuk penyelenggaraan server, pengoptimuman prestasi, dan penyelesaian masalah teknikal.</p>
+            </div>
+            <div class="founder-card">
+                <img src="https://i.imgur.com/ebeadea4-c10e-4045-adfd-fea0d88719fb.png" alt="ElianaRiqma">
+                <h3>ElianaRiqma</h3>
+                <p>Menyaring dan memasukkan pemain baharu ke dalam The Kingdoms, memastikan hanya mereka yang benar-benar berminat dan bersedia untuk menjadi sebahagian daripada komuniti kami.</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
         &copy; 2025 The Kingdoms. Semua hak cipta terpelihara.
