@@ -55,7 +55,7 @@
         header {
             position: relative;
             height: 100vh;
-            background: url('https://media.discordapp.net/attachments/1400465644893376526/1439270821972414635/ddcd9605-2521-4c8b-adb2-9809d96f2add.jpeg?ex=6930fb28&is=692fa9a8&hm=a53f92a866bc19b9706ce64456067d36ae03eb80bc00fc590ede6f66b358613d&=&format=webp&width=928&height=522') no-repeat center/cover;
+            background: url('images/header-bg.jpeg') no-repeat center/cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -72,6 +72,7 @@
         }
 
         header h1, header p {
+            position: relative;
             z-index: 1;
             animation: fadeInUp 1.2s ease forwards;
             opacity: 0;
@@ -130,8 +131,10 @@
 
         /* ===================== FOUNDER SECTION ===================== */
         .founders {
-            background: #EFBF04;
-            color: #000;
+            background: #111;
+            color: #fff;
+            border-top: 2px solid #ffd700;
+            border-bottom: 2px solid #ffd700;
         }
 
         .founder-grid {
@@ -143,10 +146,11 @@
         }
 
         .founder-card {
-            background: #fff;
+            background: #1a1a1a;
             border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border: 1px solid #333;
             transition: 0.3s;
         }
         .founder-card:hover {
@@ -157,30 +161,60 @@
             border-radius: 15px;
             margin-bottom: 20px;
         }
-
-        /* ===================== server SECTION ===================== */
-        .server-box {
-            background: #EFBF04;
-            color: #000;
+        .founder-card h3 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        .founder-card p {
+            font-size: 0.9em;
+            color: #ccc;
         }
 
-         .max-width: 1000px;
-            margin: auto;
+        /* ===================== server SECTION ===================== */
+        .server-section {
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/server-bg.jpg') no-repeat center/cover;
+            background-attachment: fixed;
+        }
+
+        .server-grid {
             display: grid;
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
         }
 
         .server-card {
-            padding: 20px;
+            padding: 30px;
             border-left: 5px solid #ff9900;
-            background: #1a1a1a;
-            border-radius: 8px;
+            background: rgba(26, 26, 26, 0.95);
+            border-radius: 12px;
             text-align: left;
+            transition: transform 0.3s ease;
         }
 
-        .server-card h3 {
+        .server-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .server-card h2, .server-card h3 {
             color: #ffd700;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .server-card p {
+            font-size: 0.95em;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .server-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
         }
 
         /* ===================== COMMUNITY SECTION ===================== */
@@ -225,6 +259,46 @@
             text-align: center;
             color: #aaa;
         }
+
+        /* ===================== BUTTONS ===================== */
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #ff9900;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #ffd700;
+            transform: scale(1.05);
+        }
+
+        /* ===================== MOBILE RESPONSIVE ===================== */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.85em;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            header p {
+                font-size: 1em;
+                padding: 0 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -252,21 +326,21 @@
     <div class="founder-grid">
         <div class="founder-card">
             <a href="https://linktr.ee/pipit_k" target="_blank">
-                <img src="https://cdn.discordapp.com/attachments/1221154413746589826/1445396732182532208/23weDu2GLzs7KKxX1CzeREmZi8HxdBPS6sYGUv66F1fP2vDDZRnLstx12CTCv8Kr.jpg?ex=6930321b&is=692ee09b&hm=c6bf596d870f0e7740afa01b73cb9365998c4251c2a887eee5aed332dcfc6e06&" alt="pipit_k">
+                <img src="images/pipit.jpg" alt="pipit_k">
             </a>
             <h3>pipit</h3>
             <p>Mengurus komuniti pemain dengan memastikan komunikasi yang lancar, menyelesaikan konflik dengan adil, dan mewujudkan suasana permainan yang harmoni serta menyeronokkan untuk semua.</p>
         </div>
         <div class="founder-card">
             <a href="https://linktr.ee/Karipapdap" target="_blank">
-                <img src="https://cdn.discordapp.com/attachments/1221154413746589826/1445396720191279184/dKMGF9uodkGmOMA3EZin0aUhZjHMpKThBhmBqsXcumxPmr1670EG3jKp4s75Hzrg.jpg?ex=69303218&is=692ee098&hm=b31caf18743280ab4b30eb091c0cc9fbbd017d28e01239f48ba36836fcc0b894&" alt="Karipapdap">
+                <img src="images/karipapdap.jpg" alt="Karipapdap">
             </a>
             <h3>Karipapdap</h3>
             <p>Bertanggungjawab dalam pengurusan teknikal The Kingdoms, termasuk penyelenggaraan server, pengoptimuman prestasi, dan penyelesaian masalah teknikal.</p>
         </div>
         <div class="founder-card">
             <a href="https://linktr.ee/ElianaRiqma" target="_blank">
-                <img src="https://cdn.discordapp.com/attachments/1221154413746589826/1445396704982732840/24jI74PNnicS6NgVZfeXf5x5oxHzhQNGKp7qKkUR5a8W5tHsAv0UmeTfms3sNACP.jpg?ex=69303214&is=692ee094&hm=8e44919b4b444298d31b22b824da56c84226ce2f42d41cd06e48f2bfaa186241&" alt="ElianaRiqma">
+                <img src="images/eliana.jpg" alt="ElianaRiqma">
             </a>
             <h3>ElianaRiqma</h3>
             <p>Membantu mempromosikan server The Kingdoms kepada komuniti yang lebih luas.</p>
@@ -276,21 +350,18 @@
 
 
 <!-- SERVER SECTION -->
-<section id="server" class="server-section fade-in">
+<section id="server" class="server-section">
     <h2>Minecraft Server by The Kingdoms</h2>
 
     <div class="server-grid">
 
         <!-- SERVER 1 -->
-<!-- The Kingdoms Survival Section -->
-<section class="server-section">
-    <div class="server-card">
-            <img src="https://cdn.discordapp.com/attachments/1279636694026555556/1366595679002296440/THEKINGDOM_REMOVE_BACKGROUND.webp?ex=69304327&is=692ef1a7&hm=faf1a718e8324682d19037b80db30b36d6434d0a924f786b0d029c4c00ba1862&" alt="The Kingdoms Survival" class="server-img">
-        </a>
+        <div class="server-card fade-in">
+            <img src="images/survival.png" alt="The Kingdoms Survival" class="server-img">
 
-        <h2>The Kingdoms Survival</h2>
+            <h2>The Kingdoms Survival</h2>
 
-        <p>
+            <p>
             The Kingdoms bukan sekadar sebuah server Minecraft—ia adalah sebuah dunia yang berkembang bersama komuniti.
             Bermula sebagai projek kecil di kalangan rakan-rakan, ia kini menjadi tempat di mana setiap pemain mempunyai
             peranan dalam membentuk sejarah, membina peradaban, dan mencipta kenangan yang tidak akan dilupakan.
@@ -323,30 +394,13 @@
 
         <a href="playerss1" class="button">Lihat Semua Player</a>
 
-<style>
-.button {
-    display: inline-block;
-    padding: 10px 20px;       /* saiz button */
-    background-color: #ff9900; /* warna button */
-    color: #fff;               /* warna teks */
-    text-decoration: none;     /* buang underline */
-    border-radius: 8px;        /* sudut bulat */
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.button:hover {
-    background-color: #e68a00; /* warna bila hover */
-}
-</style>
-        
-    </div>
+        </div>
 
 
 <!-- SERVER 2 -->
-<div class="server-card">
+<div class="server-card fade-in">
     <a href="#" target="_blank">
-        <img src="https://cdn.discordapp.com/attachments/1221154413746589826/1445423301454336042/328JVjAwnmonUikt8e7DSDiKFuq41OrMCf4sIUfg3ae8JLYmMTdIE2DoCdXPJUkT.png?ex=69304ad9&is=692ef959&hm=492043ae6647b578f6157c5851a5d0d17b98af1efb060d8fb07c480a82062663&" class="server-img">
+        <img src="images/elpika.png" class="server-img">
     </a>
     <h2>ElpikaCraft (BCG+)</h2>
 
@@ -384,9 +438,9 @@
 
 
 <!-- SERVER 3 -->
-<div class="server-card">
+<div class="server-card fade-in">
     <a href="#" target="_blank">
-        <img src="https://cdn.discordapp.com/attachments/1221154413746589826/1445423674738868284/12u0kT3MyBJ2FofQynoaneqgLIsZXaTGvfWH8qcYPnjQNzzOS5rqfymSkEBY2y37.png?ex=69304b32&is=692ef9b2&hm=2b486b99979dcd3a5cfbd4dfc255755f624bf31724d43e9a8a2ec944f1b2a84d&" class="server-img">
+        <img src="images/season2.png" class="server-img">
     </a>
 
     <h2>The Kingdoms – Season 2</h2>
@@ -432,9 +486,9 @@
 
 
 <!-- SERVER 4 -->
-<div class="server-card">
+<div class="server-card fade-in">
     <a href="#" target="_blank">
-        <img src="https://cdn.discordapp.com/attachments/1279636694026555556/1389229030393249862/The_Kingdoms_Bedrock_Edition_RemoveBG.png?ex=6930345b&is=692ee2db&hm=ef1d7d596a7eb4ff49d0d730e103bcd597f5a425a2c7c7ef1eb84406c2d12d19&" class="server-img">
+        <img src="images/bedrock.png" class="server-img">
     </a>
 
     <h2>The Kingdoms – Bedrock Edition</h2>
@@ -479,51 +533,6 @@
 
     </div>
 </section>
-
-<style>
-.server-section {
-    padding: 50px 20px;
-    background: url('https://cdn.discordapp.com/attachments/1221154413746589826/1445670032733507716/772f5f032ee27d3ef5c7fd37f151f83a.jpg?ex=693130a3&is=692fdf23&hm=70bb49a2d1bdb24ac0b611ad360c6bfbc8aa48c9db8e80ccd4efc06f5f9bf7e1&') no-repeat center/cover;
-}
-
-.server-title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-    color: #222;
-}
-
-.server-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.server-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-}
-
-.server-card h2 {
-    margin: 15px 0;
-    color: #111;
-}
-
-.server-card p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.server-img {
-    width: 100%;
-    border-radius: 10px;
-}
-</style>
 
 <!-- COMMUNITY -->
 <section id="community" class="fade-in">
