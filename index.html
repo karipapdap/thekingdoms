@@ -1,569 +1,266 @@
+<!--
+Folder structure to upload to your GitHub Pages repo:
+
+/players/
+  index.html          <-- players directory index (list of players)
+  karipapdap.html
+  elianariqma.html
+  pit_pit.html
+  charliesama_.html
+  Child_Heart.html
+  raizouuu.html
+  Busterinoo.html
+  Kureiji_Fama.html
+  Qih__.html
+  _AST3R1A_.html
+  Phrosyne.html
+  MILK0MIK0.html
+  Amza_TheNut.html
+  Azroy182.html
+  Si_Quro.html
+  FujiLunarMY.html
+  KayydenBreak.html
+  Yuikixchan.html
+  KazumiZ.html
+  InVdaPro.html
+  ItikBakar.html
+  whynotamer.html
+  MRPOTTER00.html
+  ulchimera.html
+  EmikoMinji04.html
+  nebulalala.html
+  burhanbubo.html
+  Mr_Supreme_.html
+
+-->
+
+<!-- FILE: /players/index.html -->
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Kingdoms – Official Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-        body {
-            font-family: Arial, sans-serif;
-            color: #f5f5f5;
-            background-color: #0b0b0b;
-        }
-
-        /* ===================== NAVIGATION ===================== */
-        nav {
-            width: 100%;
-            background: rgba(0,0,0,0.75);
-            padding: 15px 40px;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(6px);
-        }
-
-        nav .logo {
-            font-family: 'Press Start 2P', cursive;
-            color: #ffd700;
-            font-size: 1.1em;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.95em;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #ffd700;
-        }
-
-        /* ===================== HEADER ===================== */
-        header {
-            position: relative;
-            height: 100vh;
-            background: url('images/header-bg.jpeg') no-repeat center/cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding-top: 80px;
-            text-align: center;
-        }
-
-        header::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-        }
-
-        header h1, header p {
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 1.2s ease forwards;
-            opacity: 0;
-        }
-
-        header h1 {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 3em;
-            color: #ffd700;
-            margin-bottom: 20px;
-            animation-delay: 0.4s;
-        }
-
-        header p {
-            font-size: 1.2em;
-            max-width: 700px;
-            line-height: 1.6;
-            animation-delay: 0.7s;
-        }
-
-        /* ===================== ANIMATION ===================== */
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: 0.8s ease-out;
-        }
-
-        .fade-in.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===================== SECTION UNIVERSAL ===================== */
-        section {
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 2.2em;
-            color: #ff9900;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.1em;
-            max-width: 850px;
-            margin: auto;
-            line-height: 1.6;
-        }
-
-        /* ===================== FOUNDER SECTION ===================== */
-        .founders {
-            background: #111;
-            color: #fff;
-            border-top: 2px solid #ffd700;
-            border-bottom: 2px solid #ffd700;
-        }
-
-        .founder-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .founder-card {
-            background: #1a1a1a;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            border: 1px solid #333;
-            transition: 0.3s;
-        }
-        .founder-card:hover {
-            transform: translateY(-10px);
-        }
-        .founder-card img {
-            width: 100%;
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
-        .founder-card h3 {
-            color: #ffd700;
-            margin-bottom: 10px;
-        }
-        .founder-card p {
-            font-size: 0.9em;
-            color: #ccc;
-        }
-
-        /* ===================== server SECTION ===================== */
-        .server-section {
-            padding: 80px 20px;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/server-bg.jpg') no-repeat center/cover;
-            background-attachment: fixed;
-        }
-
-        .server-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .server-card {
-            padding: 30px;
-            border-left: 5px solid #ff9900;
-            background: rgba(26, 26, 26, 0.95);
-            border-radius: 12px;
-            text-align: left;
-            transition: transform 0.3s ease;
-        }
-
-        .server-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .server-card h2, .server-card h3 {
-            color: #ffd700;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        .server-card p {
-            font-size: 0.95em;
-            color: #ddd;
-            margin-bottom: 15px;
-        }
-
-        .server-img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #444;
-        }
-
-        /* ===================== COMMUNITY SECTION ===================== */
-        .community-icons {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        .community-icons a {
-            font-size: 1.3em;
-            background: #ff9900;
-            padding: 12px 30px;
-            border-radius: 10px;
-            color: #111;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .community-icons a:hover {
-            background: #ffd700;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #ffd700;
-        }
-
-        /* ===================== CONTACT SECTION ===================== */
-        .contact-box {
-            max-width: 700px;
-            margin: auto;
-            text-align: left;
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 5px solid #ff9900;
-        }
-
-        footer {
-            background: #111;
-            padding: 25px;
-            text-align: center;
-            color: #aaa;
-        }
-
-        /* ===================== BUTTONS ===================== */
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #ff9900;
-            color: #000;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
-            margin-top: 10px;
-        }
-        .button:hover {
-            background-color: #ffd700;
-            transform: scale(1.05);
-        }
-
-        /* ===================== MOBILE RESPONSIVE ===================== */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 15px;
-                gap: 15px;
-            }
-            
-            nav ul {
-                gap: 15px;
-                font-size: 0.85em;
-            }
-
-            header h1 {
-                font-size: 1.8em;
-            }
-
-            header p {
-                font-size: 1em;
-                padding: 0 20px;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Senarai Pemain - The Kingdoms S1(Java Edition)</title>
+  <style>
+    :root{--bg:#0b0b0b;--card:#111;--muted:#bfbfbf;--accent:#ff9900}
+    body{font-family:Inter, Arial, sans-serif;background:var(--bg);color:#fff;margin:0;padding:40px}
+    h1{text-align:center;margin-bottom:20px;font-size:1.8rem}
+    .wrap{max-width:1100px;margin:0 auto}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+    .player-card{background:var(--card);padding:18px;border-radius:12px;text-align:center;box-shadow:0 6px 24px rgba(0,0,0,0.6)}
+    .avatar{width:120px;height:120px;border-radius:12px;display:block;margin:0 auto 12px}
+    a.name{display:block;color:#fff;text-decoration:none;font-weight:700;margin-bottom:8px}
+    .meta{color:var(--muted);font-size:0.9rem}
+    .back{display:block;text-align:center;margin-top:28px;color:var(--muted);text-decoration:none}
+    @media (max-width:480px){body{padding:20px}h1{font-size:1.4rem}}
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <h1>Senarai Pemain The Kingdoms</h1>
+    <div class="grid">
 
-<!-- NAVBAR -->
-<nav>
-    <div class="logo">THE KINGDOMS</div>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#server">Server</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+<!-- Player cards autogenerated -->
 
-<!-- HOME -->
-<header id="home">
-    <h1>Membina, Bertahan, Bersejarah</h1>
-    <p>The Kingdoms bukan sekadar server biasa — ia adalah dunia di mana pemain membina keajaiban, mencipta sejarah dan mengembangkan legasi.</p>
-</header>
-
-<!-- FOUNDER -->
-<section class="founders">
-    <h2>Founder The Kingdoms</h2>
-    <div class="founder-grid">
-        <div class="founder-card">
-            <a href="https://linktr.ee/pipit_k" target="_blank">
-                <img src="images/pipit.jpg" alt="pipit_k">
-            </a>
-            <h3>pipit</h3>
-            <p>Mengurus komuniti pemain dengan memastikan komunikasi yang lancar, menyelesaikan konflik dengan adil, dan mewujudkan suasana permainan yang harmoni serta menyeronokkan untuk semua.</p>
-        </div>
-        <div class="founder-card">
-            <a href="https://linktr.ee/Karipapdap" target="_blank">
-                <img src="images/karipapdap.jpg" alt="Karipapdap">
-            </a>
-            <h3>Karipapdap</h3>
-            <p>Bertanggungjawab dalam pengurusan teknikal The Kingdoms, termasuk penyelenggaraan server, pengoptimuman prestasi, dan penyelesaian masalah teknikal.</p>
-        </div>
-        <div class="founder-card">
-            <a href="https://linktr.ee/ElianaRiqma" target="_blank">
-                <img src="images/eliana.jpg" alt="ElianaRiqma">
-            </a>
-            <h3>ElianaRiqma</h3>
-            <p>Membantu mempromosikan server The Kingdoms kepada komuniti yang lebih luas.</p>
-        </div>
+    <!-- Karipapdap -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/Karipapdap/200.png" alt="Karipapdap">
+      <a class="name" href="https://www.tiktok.com/@karipapdap">Karipapdap</a>
+      <div class="meta">Founder • Admin</div>
     </div>
-</section>
 
+    <!-- ElianaRiqma -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/ElianaRiqma/200.png" alt="ElianaRiqma">
+      <a class="name" href="https://www.tiktok.com/@ElianaRiqma">ElianaRiqma</a>
+      <div class="meta">Founder • Admin</div>
+    </div>
 
-<!-- SERVER SECTION -->
-<section id="server" class="server-section">
-    <h2>Minecraft Server by The Kingdoms</h2>
+    <!-- pit_pit -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/pipit_t/200.png" alt="pit_pit">
+      <a class="name" href="pit_pit.html">pipit_t</a>
+      <div class="meta">Founder • Admin</div>
+    </div>
 
-    <div class="server-grid">
+    <!-- charliesama_ -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/charliesama_/200.png" alt="charliesama_">
+      <a class="name" href="charliesama_.html">charliesama_</a>
+      <div class="meta">Player</div>
+    </div>
 
-        <!-- SERVER 1 -->
-        <div class="server-card fade-in">
-            <img src="images/survival.png" alt="The Kingdoms Survival" class="server-img">
+    <!-- Child_Heart -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/Child_Heart/200.png" alt="Child_Heart">
+      <a class="name" href="Child_Heart.html">Child_Heart</a>
+      <div class="meta">Player</div>
+    </div>
 
-            <h2>The Kingdoms Survival</h2>
+    <!-- raizouuu -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/raizouuu/200.png" alt="raizouuu">
+      <a class="name" href="raizouuu.html">raizouuu</a>
+      <div class="meta">Player</div>
+    </div>
 
-            <p>
-            The Kingdoms bukan sekadar sebuah server Minecraft—ia adalah sebuah dunia yang berkembang bersama komuniti.
-            Bermula sebagai projek kecil di kalangan rakan-rakan, ia kini menjadi tempat di mana setiap pemain mempunyai
-            peranan dalam membentuk sejarah, membina peradaban, dan mencipta kenangan yang tidak akan dilupakan.
-        </p>
+    <!-- Busterinoo -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/Busterinoo/200.png" alt="Busterinoo">
+      <a class="name" href="Busterinoo.html">Busterinoo</a>
+      <div class="meta">Player</div>
+    </div>
 
-        <p>
-            🗓️ <strong>Musim Pertama: 7 September 2024 – 31 Januari 2025</strong><br>
-            Perjalanan ini bermula pada 7 September 2024, membawa pemain ke dalam dunia penuh cabaran dan eksplorasi.
-            Dari bandar pertama yang dibina hingga ke peristiwa-peristiwa epik yang mengubah landskap dunia, setiap langkah
-            yang diambil oleh pemain meninggalkan kesan.
-        </p>
+    <!-- Kureiji_Fama -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/Kureiji_Fama/200.png" alt="Kureiji_Fama">
+      <a class="name" href="Kureiji_Fama.html">Kureiji_Fama</a>
+      <div class="meta">Player</div>
+    </div>
 
-        <p>
-            Ada yang membina empayar megah, ada yang menjadi pahlawan dalam pertempuran sengit, dan ada juga yang sekadar
-            mencari tempat untuk bersantai dan berkongsi cerita.
-        </p>
+    <!-- Qih__ -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/Qih__/200.png" alt="Qih__">
+      <a class="name" href="Qih__.html">Qih__</a>
+      <div class="meta">Player</div>
+    </div>
 
-        <p>
-            Perjalanan di The Kingdoms bukan tanpa cabaran—mengurus ekonomi, membina infrastruktur, dan menyelesaikan
-            konflik antara pemain adalah sebahagian daripada pengalaman yang menjadikan dunia ini lebih hidup. Tetapi
-            semangat kekitaan dan kebersamaan sentiasa menjadi nadi kepada server ini.
-        </p>
+    <!-- _AST3R1A_ -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/_AST3R1A_/200.png" alt="_AST3R1A_">
+      <a class="name" href="_AST3R1A_.html">_AST3R1A_</a>
+      <div class="meta">Player</div>
+    </div>
 
-        <p>
-            Dengan mod dan ciri khas yang terus berkembang, The Kingdoms sentiasa berubah—memberikan pengalaman yang segar
-            dan mencabar untuk setiap pemain. Namun, satu perkara tetap sama:
-        </p>
+    <!-- Phrosyne -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/Phrosyne/200.png" alt="Phrosyne">
+      <a class="name" href="Phrosyne.html">Phrosyne</a>
+      <div class="meta">Player</div>
+    </div>
 
-        <p><strong>🛡️ The Kingdoms bukan sekadar dunia dalam Minecraft—ia adalah sebuah komuniti yang bernyawa.</strong></p>
+    <!-- MILK0MIK0 -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/MILK0MIK0/200.png" alt="MILK0MIK0">
+      <a class="name" href="MILK0MIK0.html">MILK0MIK0</a>
+      <div class="meta">Player</div>
+    </div>
 
-        <a href="playerss1" class="button">Lihat Semua Player</a>
+    <!-- Amza_TheNut -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/Amza_TheNut/200.png" alt="Amza_TheNut">
+      <a class="name" href="Amza_TheNut.html">Amza_TheNut</a>
+      <div class="meta">Player</div>
+    </div>
 
-        </div>
+    <!-- Azroy182 -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/Azroy182/200.png" alt="Azroy182">
+      <a class="name" href="Azroy182.html">Azroy182</a>
+      <div class="meta">Player</div>
+    </div>
 
+    <!-- Si_Quro -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/Si_Quro/200.png" alt="Si_Quro">
+      <a class="name" href="Si_Quro.html">Si_Quro</a>
+      <div class="meta">Player</div>
+    </div>
 
-<!-- SERVER 2 -->
-<div class="server-card fade-in">
-    <a href="#" target="_blank">
-        <img src="images/elpika.png" class="server-img">
-    </a>
-    <h2>ElpikaCraft (BCG+)</h2>
+    <!-- FujiLunarMY -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/FujiLunarMY/200.png" alt="FujiLunarMY">
+      <a class="name" href="FujiLunarMY.html">FujiLunarMY</a>
+      <div class="meta">Player</div>
+    </div>
 
-    <p>
-        ElpikaCraft (BCG+) bukan sekadar server Minecraft biasa—ia adalah pengalaman survival 
-        yang dipertingkatkan dengan modpack BigChadGuy Plus, memberikan pelbagai ciri baharu 
-        yang menjadikan permainan lebih menarik dan mencabar.
-    </p>
+    <!-- KayydenBreak -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/KayydenBreak/200.png" alt="KayydenBreak">
+      <a class="name" href="KayydenBreak.html">KayydenBreak</a>
+      <div class="meta">Player</div>
+    </div>
 
-    <p><strong>🗓️ Dilancarkan pada:</strong> 15 Januari 2025 – 30 April 2025<br>
-    Bermula pada 15 Januari 2025, ElpikaCraft menjadi dunia di mana pemain boleh meneroka, membina, 
-    dan berinteraksi dalam persekitaran yang lebih dinamik dan immersive. Dengan gabungan mod-mod 
-    berkualiti tinggi, server ini menawarkan gameplay yang lebih mendalam, termasuk sistem 
-    pertanian yang lebih kompleks, dunia yang lebih realistik, serta mekanik permainan 
-    yang memberikan lebih kebebasan kepada pemain.
-    </p>
+    <!-- Yuikixchan -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/Yuikixchan/200.png" alt="Yuikixchan">
+      <a class="name" href="Yuikixchan.html">Yuikixchan</a>
+      <div class="meta">Player</div>
+    </div>
 
-    <p><strong>Apa yang Membuat ElpikaCraft (BCG+) Istimewa?</strong><br>
-    ✔ Tanpa Cobblemon – Fokus kepada elemen survival dan eksplorasi sebenar.<br>
-    ✔ Modpack BigChadGuy Plus – Menambah pelbagai mod yang memperkayakan pengalaman Minecraft.<br>
-    ✔ Komuniti Eksklusif – Server ini adalah private, memastikan hanya pemain yang benar-benar 
-      berminat dan komited dapat menyertainya.
-    </p>
+    <!-- KazumiZ -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/KazumiZ/200.png" alt="KazumiZ">
+      <a class="name" href="KazumiZ.html">KazumiZ</a>
+      <div class="meta">Player</div>
+    </div>
 
-    <p>
-        Di ElpikaCraft, setiap pemain mempunyai kebebasan untuk mencipta kisah mereka sendiri—sama ada 
-        menjadi seorang pembina hebat, peniaga berjaya, atau penjelajah yang berani. Dunia ini sentiasa 
-        berkembang, dan dengan setiap kemas kini, lebih banyak ciri menarik ditambah untuk memberikan 
-        pengalaman terbaik kepada komuniti.
-    </p>
+    <!-- InVdaPro -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/InVdaPro/200.png" alt="InVdaPro">
+      <a class="name" href="InVdaPro.html">InVdaPro</a>
+      <div class="meta">Player • Staff</div>
+    </div>
 
-    <p><strong>🎮 Selamat datang ke ElpikaCraft (BCG+),</strong><br>
-    tempat di mana pengembaraan Minecraft menjadi lebih epik!</p>
-</div>
+    <!-- ItikBakar -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/ItikBakar/200.png" alt="ItikBakar">
+      <a class="name" href="ItikBakar.html">ItikBakar</a>
+      <div class="meta">Player</div>
+    </div>
 
+    <!-- whynotamer -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/whynotamer/200.png" alt="whynotamer">
+      <a class="name" href="whynotamer.html">whynotamer</a>
+      <div class="meta">Player</div>
+    </div>
 
-<!-- SERVER 3 -->
-<div class="server-card fade-in">
-    <a href="#" target="_blank">
-        <img src="images/season2.png" class="server-img">
-    </a>
+    <!-- MRPOTTER00 -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/MRPOTTER00/200.png" alt="MRPOTTER00">
+      <a class="name" href="MRPOTTER00.html">MRPOTTER00</a>
+      <div class="meta">Player</div>
+    </div>
 
-    <h2>The Kingdoms – Season 2</h2>
+    <!-- ulchimera -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/ulchimera/200.png" alt="ulchimera">
+      <a class="name" href="ulchimera.html">ulchimera</a>
+      <div class="meta">Player</div>
+    </div>
 
-    <p>
-        <strong>The Kingdoms – Season 2: Kembali ke Asas, Menulis Legenda Baharu</strong><br>
-        The Kingdoms: Season 2 membawa pemain kembali kepada asas—pengalaman Minecraft vanilla 
-        sepenuhnya, tanpa plugin, tanpa mod, hanya kreativiti dan semangat komuniti yang 
-        menggerakkan dunia.
-    </p>
+    <!-- EmikoMinji04 -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/EmikoMinji04/200.png" alt="EmikoMinji04">
+      <a class="name" href="EmikoMinji04.html">EmikoMinji04</a>
+      <div class="meta">Player</div>
+    </div>
 
-    <p><strong>🗓️ Musim Kedua: 30 April 2025 – 20 Disember 2025</strong><br>
-        Perjalanan ini bermula pada 30 April 2025. Musim ini dibina atas falsafah sederhana: 
-        tiada gangguan luaran, tiada kelebihan buatan—hanya dunia Minecraft tulen yang dibentuk 
-        oleh usaha dan interaksi pemain.
-    </p>
+    <!-- nebulalala -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/nebulalala/200.png" alt="nebulalala">
+      <a class="name" href="nebulalala.html">nebulalala</a>
+      <div class="meta">Player</div>
+    </div>
 
-    <p>
-        Dari menggali blok pertama hingga membina kerajaan agung, segala-galanya dilakukan 
-        secara manual, seperti Minecraft asal dicipta.
-    </p>
+    <!-- burhanbubo -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/burhanbubo/200.png" alt="burhanbubo">
+      <a class="name" href="burhanbubo.html">burhanbubo</a>
+      <div class="meta">Player</div>
+    </div>
 
-    <p>
-        Dengan ketiadaan plugin, setiap sistem—daripada ekonomi ke pemerintahan, daripada peperangan 
-        ke perjanjian—digerakkan sepenuhnya oleh pemain. Tiada sistem automatik, tiada perintah khas. 
-        Hanya kebijaksanaan, kreativiti, dan komunikasi.
-    </p>
-
-    <p>
-        Inilah dunia di mana segalanya perlu dibina, dijaga, dan dipertahankan sepenuhnya 
-        oleh tangan sendiri.
-    </p>
-
-    <p>
-        🌍 <strong>The Kingdoms: Season 2</strong> bukan sekadar kelangsungan musim lalu—ia adalah 
-        eksperimen sosial dan survival sebenar dalam dunia Minecraft yang benar-benar asli.
-    </p>
-
-    <p>
-        🛡️ Di sinilah, dari dunia kosong tanpa bantuan sistem luar, legenda baharu dilahirkan.
-    </p>
-</div>
-
-
-<!-- SERVER 4 -->
-<div class="server-card fade-in">
-    <a href="#" target="_blank">
-        <img src="images/bedrock.png" class="server-img">
-    </a>
-
-    <h2>The Kingdoms – Bedrock Edition</h2>
-
-    <p>
-        <strong>The Kingdoms: Bedrock Edition</strong> adalah sebuah Realms rasmi Minecraft yang 
-        dibina khas untuk memberikan pengalaman survival sepenuhnya vanilla, tanpa sebarang 
-        cheat, mod, atau plugin.
-    </p>
-
-    <p>
-        <strong>🗓️ Dibuka pada: 30 Jun 2025 – Kini</strong><br>
-        Realms ini mula dibuka pada 30 Jun 2025 dan kekal aktif hingga sekarang, menjadi 
-        tempat pemain menikmati dunia Minecraft dalam bentuk paling asli.
-    </p>
-
-    <p>
-        🎯 <strong>Achievements Aktif – Tiada Cheats Dibenarkan</strong><br>
-        Realms ini dijalankan dengan “Activate Cheats” dimatikan sepenuhnya, bermaksud semua 
-        achievement Minecraft boleh diperoleh secara sah. Tiada arahan <code>/give</code>, 
-        <code>/tp</code>, atau kelebihan OP — segalanya dilakukan secara manual.
-    </p>
-
-    <p>
-        🧱 <strong>100% Vanilla – 0% Gangguan</strong><br>
-        Setiap blok, rumah, dan pencapaian dibina oleh pemain sendiri tanpa bantuan sistem luar. 
-        Dunia yang bersih, adil, dan asli.
-    </p>
-
-    <p>
-        👥 <strong>Realms Private & Eksklusif</strong><br>
-        Kemasukan adalah melalui jemputan sahaja — hanya untuk pemain yang menghargai gameplay 
-        vanilla tulen dan sanggup membina segalanya dari bawah.
-    </p>
-
-    <p>
-        🛡️ <strong>The Kingdoms Bedrock Realms</strong> – Tempat di mana survival sebenar bermula, 
-        dan hanya mereka yang gigih akan mencipta legasi.
-    </p>
-</div>
-
+    <!-- Mr_Supreme_ -->
+    <div class="player-card">
+      <img class="avatar" src="https://mineskin.eu/avatar/Mr_Supreme_/200.png" alt="Mr_Supreme_">
+      <a class="name" href="Mr_Supreme_.html">Mr_Supreme_</a>
+      <div class="meta">Player</div>
+    </div>
 
     </div>
-</section>
-
-<!-- COMMUNITY -->
-<section id="community" class="fade-in">
-    <h2>Komuniti The Kingdoms</h2>
-    <p>Sertai ribuan pemain yang aktif membina dunia unik mereka.</p>
-
-    <div class="community-icons">
-        <a href="https://discord.gg" target="_blank">Discord</a>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    © 2025 The Kingdoms. Semua hak cipta terpelihara.
-</footer>
-
-<script>
-    // Fade-in on scroll
-    const faders = document.querySelectorAll('.fade-in');
-
-    function showOnScroll() {
-        faders.forEach(el => {
-            const top = el.getBoundingClientRect().top;
-            if (top < window.innerHeight - 100) {
-                el.classList.add("show");
-            }
-        });
-    }
-    window.addEventListener("scroll", showOnScroll);
-    showOnScroll();
-</script>
-
 </body>
 </html>
+
+
+
