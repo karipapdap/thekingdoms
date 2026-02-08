@@ -5,301 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Kingdoms – Official Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-        body {
-            font-family: Arial, sans-serif;
-            color: #f5f5f5;
-            background-color: #0b0b0b;
-        }
-
-        /* ===================== NAVIGATION ===================== */
-        nav {
-            width: 100%;
-            background: rgba(0,0,0,0.75);
-            padding: 15px 40px;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(6px);
-        }
-
-        nav .logo {
-            font-family: 'Press Start 2P', cursive;
-            color: #ffd700;
-            font-size: 1.1em;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.95em;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #ffd700;
-        }
-
-        /* ===================== HEADER ===================== */
-        header {
-            position: relative;
-            height: 100vh;
-            background: url('images/header-bg.jpeg') no-repeat center/cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding-top: 80px;
-            text-align: center;
-        }
-
-        header::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-        }
-
-        header h1, header p {
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 1.2s ease forwards;
-            opacity: 0;
-        }
-
-        header h1 {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 3em;
-            color: #ffd700;
-            margin-bottom: 20px;
-            animation-delay: 0.4s;
-        }
-
-        header p {
-            font-size: 1.2em;
-            max-width: 700px;
-            line-height: 1.6;
-            animation-delay: 0.7s;
-        }
-
-        /* ===================== ANIMATION ===================== */
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: 0.8s ease-out;
-        }
-
-        .fade-in.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===================== SECTION UNIVERSAL ===================== */
-        section {
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 2.2em;
-            color: #ff9900;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.1em;
-            max-width: 850px;
-            margin: auto;
-            line-height: 1.6;
-        }
-
-        /* ===================== FOUNDER SECTION ===================== */
-        .founders {
-            background: #111;
-            color: #fff;
-            border-top: 2px solid #ffd700;
-            border-bottom: 2px solid #ffd700;
-        }
-
-        .founder-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .founder-card {
-            background: #1a1a1a;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            border: 1px solid #333;
-            transition: 0.3s;
-        }
-        .founder-card:hover {
-            transform: translateY(-10px);
-        }
-        .founder-card img {
-            width: 100%;
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
-        .founder-card h3 {
-            color: #ffd700;
-            margin-bottom: 10px;
-        }
-        .founder-card p {
-            font-size: 0.9em;
-            color: #ccc;
-        }
-
-        /* ===================== server SECTION ===================== */
-        .server-section {
-            padding: 80px 20px;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/server-bg.jpg') no-repeat center/cover;
-            background-attachment: fixed;
-        }
-
-        .server-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .server-card {
-            padding: 30px;
-            border-left: 5px solid #ff9900;
-            background: rgba(26, 26, 26, 0.95);
-            border-radius: 12px;
-            text-align: left;
-            transition: transform 0.3s ease;
-        }
-
-        .server-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .server-card h2, .server-card h3 {
-            color: #ffd700;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        .server-card p {
-            font-size: 0.95em;
-            color: #ddd;
-            margin-bottom: 15px;
-        }
-
-        .server-img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #444;
-        }
-
-        /* ===================== COMMUNITY SECTION ===================== */
-        .community-icons {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        .community-icons a {
-            font-size: 1.3em;
-            background: #ff9900;
-            padding: 12px 30px;
-            border-radius: 10px;
-            color: #111;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .community-icons a:hover {
-            background: #ffd700;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #ffd700;
-        }
-
-        /* ===================== CONTACT SECTION ===================== */
-        .contact-box {
-            max-width: 700px;
-            margin: auto;
-            text-align: left;
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 5px solid #ff9900;
-        }
-
-        footer {
-            background: #111;
-            padding: 25px;
-            text-align: center;
-            color: #aaa;
-        }
-
-        /* ===================== BUTTONS ===================== */
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #ff9900;
-            color: #000;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
-            margin-top: 10px;
-        }
-        .button:hover {
-            background-color: #ffd700;
-            transform: scale(1.05);
-        }
-
-        /* ===================== MOBILE RESPONSIVE ===================== */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 15px;
-                gap: 15px;
-            }
-            
-            nav ul {
-                gap: 15px;
-                font-size: 0.85em;
-            }
-
-            header h1 {
-                font-size: 1.8em;
-            }
-
-            header p {
-                font-size: 1em;
-                padding: 0 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -326,24 +32,28 @@
     <div class="founder-grid">
         <div class="founder-card">
             <a href="https://linktr.ee/pipit_k" target="_blank">
-                <img src="images/pipit.jpg" alt="pipit_k">
+                
             </a>
-            <h3>pipit</h3>
+            <h3>Pipit</h3>
             <p>Mengurus komuniti pemain dengan memastikan komunikasi yang lancar, menyelesaikan konflik dengan adil, dan mewujudkan suasana permainan yang harmoni serta menyeronokkan untuk semua.</p>
+            <img src="images/pipit.png" alt="pipit_k">
         </div>
+
         <div class="founder-card">
             <a href="https://linktr.ee/Karipapdap" target="_blank">
-                <img src="images/karipapdap.jpg" alt="Karipapdap">
+                
             </a>
             <h3>Karipapdap</h3>
             <p>Bertanggungjawab dalam pengurusan teknikal The Kingdoms, termasuk penyelenggaraan server, pengoptimuman prestasi, dan penyelesaian masalah teknikal.</p>
+            <img src="images/karipapdap.png" alt="Karipapdap">
         </div>
+
         <div class="founder-card">
             <a href="https://linktr.ee/ElianaRiqma" target="_blank">
-                <img src="images/eliana.jpg" alt="ElianaRiqma">
             </a>
             <h3>ElianaRiqma</h3>
             <p>Membantu mempromosikan server The Kingdoms kepada komuniti yang lebih luas.</p>
+            <img src="images/eliana.png" alt="ElianaRiqma">
         </div>
     </div>
 </section>
@@ -552,21 +262,7 @@
     © 2025 The Kingdoms. Semua hak cipta terpelihara.
 </footer>
 
-<script>
-    // Fade-in on scroll
-    const faders = document.querySelectorAll('.fade-in');
-
-    function showOnScroll() {
-        faders.forEach(el => {
-            const top = el.getBoundingClientRect().top;
-            if (top < window.innerHeight - 100) {
-                el.classList.add("show");
-            }
-        });
-    }
-    window.addEventListener("scroll", showOnScroll);
-    showOnScroll();
-</script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
