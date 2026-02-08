@@ -1,0 +1,512 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #f5f5f5;
+    background: linear-gradient(135deg, #0b0b0b 0%, #1a0a2e 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* ===================== NAVIGATION ===================== */
+nav {
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    padding: 15px 40px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
+}
+
+nav .logo {
+    font-family: 'Press Start 2P', cursive;
+    color: #ffd700;
+    font-size: 1.1em;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.3);
+    transition: 0.3s;
+}
+
+nav .logo:hover {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.5);
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ffd700, #ff9900);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* ===================== HEADER ===================== */
+header {
+    position: relative;
+    height: 100vh;
+    background: url('../images/header-bg.jpeg') no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 80px;
+    text-align: center;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+header h1, header p {
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1.2s ease forwards;
+    opacity: 0;
+}
+
+header h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3em;
+    color: #ffd700;
+    margin-bottom: 20px;
+    animation-delay: 0.4s;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                 0 0 40px rgba(255, 153, 0, 0.6),
+                 0 0 60px rgba(255, 153, 0, 0.4);
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 1.2em;
+    max-width: 700px;
+    line-height: 1.6;
+    animation-delay: 0.7s;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* ===================== ANIMATION ===================== */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                     0 0 40px rgba(255, 153, 0, 0.6);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(255, 215, 0, 1),
+                     0 0 60px rgba(255, 153, 0, 0.8);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.8s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================== SECTION UNIVERSAL ===================== */
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.2em;
+    color: #ff9900;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 153, 0, 0.5),
+                 0 0 20px rgba(255, 153, 0, 0.3);
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ff9900, transparent);
+    box-shadow: 0 0 15px rgba(255, 153, 0, 0.5);
+}
+
+p {
+    font-size: 1.1em;
+    max-width: 850px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+/* ===================== FOUNDER SECTION ===================== */
+.founders {
+    background: #111;
+    color: #fff;
+    border-top: 3px solid #ffd700;
+    border-bottom: 3px solid #ffd700;
+    box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.founder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.founder-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1b3d 100%);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5),
+                inset 0 0 20px rgba(255, 215, 0, 0.05);
+    border: 2px solid #333;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 215, 0, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.founder-card:hover {
+    transform: translateY(-15px);
+    border-color: #ffd700;
+    box-shadow: 0 12px 48px rgba(255, 215, 0, 0.2),
+                inset 0 0 20px rgba(255, 215, 0, 0.1),
+                0 0 30px rgba(255, 215, 0, 0.1);
+}
+
+.founder-card:hover::before {
+    opacity: 1;
+}
+
+.founder-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ffd700;
+    transition: 0.3s ease;
+}
+
+.founder-card:hover img {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.founder-card h3 {
+    color: #ffd700;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    font-size: 1.3em;
+}
+
+.founder-card p {
+    font-size: 0.9em;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+/* ===================== server SECTION ===================== */
+.server-section {
+    padding: 80px 20px;
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('../images/server-bg.jpg') no-repeat center/cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.server-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 153, 0, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.server-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.server-card {
+    padding: 30px;
+    border-left: 5px solid #ff9900;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 27, 61, 0.95) 100%);
+    border-radius: 12px;
+    text-align: left;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6),
+                inset 0 0 20px rgba(255, 153, 0, 0.03);
+}
+
+.server-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 153, 0, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.server-card:hover {
+    transform: translateY(-10px);
+    border-left-color: #ffd700;
+    box-shadow: 0 15px 50px rgba(255, 153, 0, 0.3),
+                inset 0 0 20px rgba(255, 153, 0, 0.1);
+}
+
+.server-card:hover::before {
+    opacity: 1;
+}
+
+.server-card h2, .server-card h3 {
+    color: #ffd700;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.server-card p {
+    font-size: 0.95em;
+    color: #ddd;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.server-img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px solid #ff9900;
+    transition: all 0.3s ease;
+}
+
+/* ===================== COMMUNITY SECTION ===================== */
+.community-icons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.community-icons a {
+    font-size: 1.3em;
+    background: linear-gradient(135deg, #ff9900 0%, #ffa500 100%);
+    padding: 15px 40px;
+    border-radius: 10px;
+    color: #111;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(255, 153, 0, 0.3),
+                inset 0 -2px 5px rgba(0,0,0,0.2);
+}
+
+.community-icons a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.community-icons a:hover {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5),
+                0 0 25px rgba(255, 215, 0, 0.4),
+                inset 0 -2px 5px rgba(0,0,0,0.2);
+    text-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+}
+
+.community-icons a:hover::before {
+    left: 100%;
+}
+
+/* ===================== CONTACT SECTION ===================== */
+.contact-box {
+    max-width: 700px;
+    margin: auto;
+    text-align: left;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1b3d 100%);
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 5px solid #ff9900;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5),
+                inset 0 0 20px rgba(255, 153, 0, 0.05);
+}
+
+footer {
+    background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+    padding: 25px;
+    text-align: center;
+    color: #aaa;
+    border-top: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+/* ===================== BUTTONS ===================== */
+.button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #ff9900 0%, #ffa500 100%);
+    color: #000;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3),
+                inset 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4),
+                0 0 20px rgba(255, 215, 0, 0.3),
+                inset 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.button:hover::before {
+    left: 100%;
+}
+
+/* ===================== MOBILE RESPONSIVE ===================== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    nav ul {
+        gap: 15px;
+        font-size: 0.85em;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header p {
+        font-size: 1em;
+        padding: 0 20px;
+    }
+}
