@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TKMY | Galeri Penuh Dunia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #ff9900;
+            --gold: #ffd700;
+            --dark: #050505;
+            --border: rgba(255, 153, 0, 0.3);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top, #1a0a2e 0%, #050505 100%);
+            color: #fff;
+            margin: 0;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        h1 { 
+            font-family: 'Orbitron', sans-serif; 
+            color: var(--gold); 
+            letter-spacing: 8px; 
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        p { color: #888; margin-bottom: 50px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            aspect-ratio: 16/9;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #000;
+            cursor: zoom-in;
+        }
+        .gallery-item:hover { 
+            transform: scale(1.05); 
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(255, 153, 0, 0.2);
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* LIGHTBOX MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border: 2px solid var(--accent);
+            border-radius: 15px;
+            box-shadow: 0 0 50px rgba(255, 153, 0, 0.3);
+            animation: zoomIn 0.3s ease-out;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .close-modal {
+            position: absolute; top: 20px; right: 35px; color: #fff; font-size: 50px; font-weight: bold; cursor: pointer;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 60px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid var(--accent);
+            padding: 12px 35px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background: var(--accent); color: #000; }
+    </style>
+</head>
+<body>
+    <h1>GALERI DUNIA THE KINGDOMS BEDROCK</h1>
+    <p>Koleksi memori dan keindahan dunia The Kingdoms Malaysia</p>
+    <div class="gallery-grid">
+        <!-- Tambah lagi gambar di bawah mengikut nama fail dalam folder imagesbedrock -->
+        <div class="gallery-item"><img src="imagesbedrock/1.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/2.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/3.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/4.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/5.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/6.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/7.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/8.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/9.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/10.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/11.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/12.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/13.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/14.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/15.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/16.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/17.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/18.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/19.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/20.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/21.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/22.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/23.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/24.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/25.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/26.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/27.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/28.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/29.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/30.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/31.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/32.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/33.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/34.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/35.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/36.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/37.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/38.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/39.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/40.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/41.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/42.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/43.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/44.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/45.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/46.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/47.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/48.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/49.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/50.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/51.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/52.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+        <div class="gallery-item"><img src="imagesbedrock/53.jpeg" alt="Dunia Bedrock" loading="lazy"></div>
+    </div>
+
+    <!-- MODAL UNTUK GAMBAR BESAR -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="fullImage">
+    </div>
+
+    <a href="index.html" class="back-btn">← Kembali ke Pengumuman</a>
+
+    <script>
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("fullImage");
+        
+        // Fungsi buka modal
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+                document.body.style.overflow = "hidden"; // Lock scroll
+            }
+        });
+
+        // Fungsi tutup modal
+        modal.onclick = function() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Unlock scroll
+        }
+    </script>
+</body>
+</html>

@@ -42,22 +42,73 @@ Folder structure to upload to your GitHub Pages repo:
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Senarai Pemain - The Kingdoms S1(Java Edition)</title>
   <style>
-    :root{--bg:#0b0b0b;--card:#111;--muted:#bfbfbf;--accent:#ff9900}
-    body{font-family:Inter, Arial, sans-serif;background:var(--bg);color:#fff;margin:0;padding:40px}
-    h1{text-align:center;margin-bottom:20px;font-size:1.8rem}
+    :root{--bg:#050505;--card:#111;--muted:#bfbfbf;--accent:#ff9900;--border: rgba(255, 153, 0, 0.3);}
+    body{font-family: 'Inter', sans-serif;background:radial-gradient(circle at top, #1a0a2e 0%, #050505 100%);color:#fff;margin:0;padding:0;line-height:1.6}
     .wrap{max-width:1100px;margin:0 auto}
+    .container{padding: 60px 20px;}
+    
+    /* HERO SECTION */
+    .hero{text-align:center;margin-bottom:60px}
+    .hero h1{font-size:clamp(2rem, 8vw, 3.5rem);text-transform:uppercase;letter-spacing:8px;margin:0;color:#fff;filter: drop-shadow(0 0 15px rgba(255, 153, 0, 0.3))}
+    .hero p{color:var(--accent);letter-spacing:2px;font-size:0.9rem;font-weight:bold}
+
+    /* INFO BOX */
+    .info-box {
+      background: rgba(20, 20, 20, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 60px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .info-box h2 { color: var(--accent); margin-top: 0; }
+    .info-box p { margin-bottom: 20px; color: rgba(255, 255, 255, 0.9); font-size: 1.05rem; }
+    .season-date { display: inline-block; background: rgba(255, 153, 0, 0.1); padding: 5px 15px; border-radius: 50px; border: 1px solid var(--accent); margin-bottom: 20px; font-weight: bold; color: var(--accent); }
+
+    /* GRID */
+    .section-title { text-align: center; margin-bottom: 40px; font-size: 1.8rem; border-bottom: 1px solid var(--border); display: inline-block; padding-bottom: 10px; position: relative; left: 50%; transform: translateX(-50%); }
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
-    .player-card{background:var(--card);padding:18px;border-radius:12px;text-align:center;box-shadow:0 6px 24px rgba(0,0,0,0.6)}
+    .player-card{background:var(--card);padding:18px;border-radius:12px;text-align:center;box-shadow:0 6px 24px rgba(0,0,0,0.6);border: 1px solid rgba(255,255,255,0.05);transition: 0.3s;}
+    .player-card:hover{border-color: var(--accent); transform: translateY(-5px);}
     .avatar{width:120px;height:120px;border-radius:12px;display:block;margin:0 auto 12px}
     a.name{display:block;color:#fff;text-decoration:none;font-weight:700;margin-bottom:8px}
     .meta{color:var(--muted);font-size:0.9rem}
-    .back{display:block;text-align:center;margin-top:28px;color:var(--muted);text-decoration:none}
-    @media (max-width:480px){body{padding:20px}h1{font-size:1.4rem}}
+    
+    .footer-nav { text-align: center; margin-top: 60px; padding-bottom: 40px; }
+    .back-btn { color: #888; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+    .back-btn:hover { color: #fff; }
+
+    @media (max-width:480px){.container{padding:20px}.hero h1{font-size:1.8rem}}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Senarai Pemain The Kingdoms</h1>
+  <div class="container wrap">
+    <header class="hero">
+      <h1>The Kingdoms Survival</h1>
+      <p>Musim Pertama: Lagasi Bermula</p>
+    </header>
+
+    <section class="info-box">
+      <div class="season-date">🗓️ 7 September 2024 – 31 Januari 2025</div>
+      <p>
+        <strong>The Kingdoms</strong> bukan sekadar sebuah server Minecraft—ia adalah sebuah dunia yang berkembang bersama komuniti. Bermula sebagai projek kecil di kalangan rakan-rakan, ia kini menjadi tempat di mana setiap pemain mempunyai peranan dalam membentuk sejarah, membina peradaban, dan mencipta kenangan yang tidak akan dilupakan.
+      </p>
+      <p>
+        Perjalanan ini bermula pada 7 September 2024, membawa pemain ke dalam dunia penuh cabaran dan eksplorasi. Dari bandar pertama yang dibina hingga ke peristiwa-peristiwa epik yang mengubah landskap dunia, setiap langkah yang diambil oleh pemain meninggalkan kesan.
+      </p>
+      <p>
+        Ada yang membina empayar megah, ada yang menjadi pahlawan dalam pertempuran sengit, dan ada juga yang sekadar mencari tempat untuk bersantai dan berkongsi cerita. Perjalanan di The Kingdoms bukan tanpa cabaran—mengurus ekonomi, membina infrastruktur, dan menyelesaikan konflik antara pemain adalah sebahagian daripada pengalaman yang menjadikan dunia ini lebih hidup.
+      </p>
+      <p>
+        Tetapi semangat kekitaan dan kebersamaan sentiasa menjadi nadi kepada server ini. Dengan mod dan ciri khas yang terus berkembang, The Kingdoms sentiasa berubah—memberikan pengalaman yang segar dan mencabar untuk setiap pemain. Namun, satu perkara tetap sama:
+      </p>
+      <p style="text-align: center; font-size: 1.2rem; color: var(--accent); margin-top: 30px;">
+        🛡️ <strong>The Kingdoms bukan sekadar dunia dalam Minecraft—ia adalah sebuah komuniti yang bernyawa.</strong>
+      </p>
+    </section>
+
+    <h2 class="section-title">Senarai Pemain S1</h2>
     <div class="grid">
 
 <!-- Player cards autogenerated -->
@@ -261,6 +312,3 @@ Folder structure to upload to your GitHub Pages repo:
     </div>
 </body>
 </html>
-
-
-

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TKMY | Bedrock Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #ff9900;
+            --gold: #ffd700;
+            --dark: #050505;
+            --card: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 153, 0, 0.3);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top, #1a0a2e 0%, #050505 100%);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        
+        /* HERO SECTION */
+        .hero { text-align: center; margin-bottom: 80px; position: relative; }
+        .hero h1 { 
+            font-family: 'Orbitron', sans-serif; 
+            font-size: clamp(2rem, 8vw, 4rem);
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            margin: 0;
+            background: linear-gradient(to bottom, #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+        }
+        .hero p { color: var(--accent); font-weight: 600; letter-spacing: 2px; }
+
+        /* ANNOUNCEMENT CARD (Formerly Info Box) */
+        .announcement-box {
+            background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(10,10,10,0.9));
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 100px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 20px rgba(255, 153, 0, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        .announcement-box h2 { font-family: 'Orbitron', sans-serif; color: var(--accent); margin-top: 0; }
+        .announcement-box p { margin-bottom: 20px; color: rgba(255, 255, 255, 0.9); font-size: 1.05rem; }
+        .season-date { display: inline-block; background: rgba(255, 153, 0, 0.1); padding: 5px 15px; border-radius: 50px; border: 1px solid var(--accent); margin-bottom: 20px; font-weight: bold; color: var(--accent); }
+        .announcement-box::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        .announcement-box code { background: rgba(255, 153, 0, 0.1); color: var(--accent); padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+
+        /* GALLERY PREVIEW */
+        .gallery-preview {
+            background: rgba(20,20,20,0.6);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 80px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        .gallery-preview h2 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; margin-bottom: 25px; color: var(--gold); }
+        .preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .preview-item { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); height: 200px; }
+        .preview-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .preview-item:hover img { transform: scale(1.1); }
+        
+        .cta-btn { 
+            display: inline-block; padding: 12px 30px; border: 2px solid var(--accent); 
+            color: var(--accent); text-decoration: none; border-radius: 50px; 
+            font-weight: bold; transition: 0.3s;
+        }
+        .cta-btn:hover { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent); }
+
+        /* PLAYER GRID */
+        .section-title { 
+            font-family: 'Orbitron', sans-serif; text-align: center; margin-bottom: 40px; 
+            font-size: 2rem; border-bottom: 1px solid var(--border); display: inline-block;
+            padding-bottom: 10px; left: 50%; transform: translateX(-50%); position: relative;
+        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 25px; }
+        .player-card {
+            background: var(--card); border: 1px solid rgba(255,255,255,0.1);
+            padding: 25px; border-radius: 16px; text-align: center; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .player-card:hover {
+            background: rgba(255, 153, 0, 0.05); border-color: var(--accent); transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+        .avatar { 
+            width: 110px; height: 110px; border-radius: 20px; margin-bottom: 15px;
+            border: 3px solid rgba(255,255,255,0.1); transition: 0.3s;
+        }
+        .player-card:hover .avatar { border-color: var(--accent); transform: rotate(5deg); }
+        .name { font-weight: 700; font-size: 1.1rem; display: block; color: #fff; }
+        .meta { color: var(--accent); font-size: 0.75rem; text-transform: uppercase; margin-top: 5px; opacity: 0.8; }
+
+        .footer-nav { text-align: center; margin-top: 60px; }
+        .back-btn { color: #888; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .back-btn:hover { color: #fff; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .announcement-box { padding: 25px; }
+            .preview-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1>BEDROCK EDITION</h1>
+            <p>The Kingdoms Bedrock Realms (30 Jun 2025 – 18 April 2026)</p>
+        </header>
+
+        <!-- ANNOUNCEMENT SECTION -->
+        <section class="announcement-box">
+            <div class="season-date">🗓️ 30 Jun 2025 – 18 April 2026</div>
+            <h2>The Kingdoms – Bedrock Edition</h2>
+
+            <p>
+                <strong>The Kingdoms: Bedrock Edition</strong> adalah sebuah Realms rasmi Minecraft yang 
+                dibina khas untuk memberikan pengalaman survival sepenuhnya vanilla, tanpa sebarang 
+                cheat, mod, atau plugin.
+            </p>
+
+            <p>
+                <strong>🗓️ Dibuka pada: 30 Jun 2025 – 18 April 2026</strong><br>
+                Realms ini mula dibuka pada 30 Jun 2025 dan kekal aktif hingga 18 April 2026, menjadi 
+                tempat pemain menikmati dunia Minecraft dalam bentuk paling asli.
+            </p>
+
+            <p>
+                🎯 <strong>Achievements Aktif – Tiada Cheats Dibenarkan</strong><br>
+                Realms ini dijalankan dengan “Activate Cheats” dimatikan sepenuhnya, bermaksud semua 
+                achievement Minecraft boleh diperoleh secara sah. Tiada arahan <code>/give</code>, 
+                <code>/tp</code>, atau kelebihan OP — segalanya dilakukan secara manual.
+            </p>
+
+            <p>
+                🧱 <strong>100% Vanilla – 0% Gangguan</strong><br>
+                Setiap blok, rumah, dan pencapaian dibina oleh pemain sendiri tanpa bantuan sistem luar. 
+                Dunia yang bersih, adil, dan asli.
+            </p>
+
+            <p>
+                👥 <strong>Realms Private & Eksklusif</strong><br>
+                Kemasukan adalah melalui jemputan sahaja — hanya untuk pemain yang menghargai gameplay 
+                vanilla tulen dan sanggup membina segalanya dari bawah.
+            </p>
+
+            <p>
+                🛡️ <strong>The Kingdoms Bedrock Realms</strong> – Tempat di mana survival sebenar bermula, 
+                dan hanya mereka yang gigih akan mencipta legasi.
+            </p>
+        </section>
+
+        <!-- GALLERY PREVIEW SECTION -->
+        <section class="gallery-preview">
+            <h2>WORLD HIGHLIGHTS</h2>
+            <div class="preview-grid">
+                <div class="preview-item"><img src="imagesbedrock/40.jpeg" alt="Highlight 1"></div>
+                <div class="preview-item"><img src="imagesbedrock/6.jpeg" alt="Highlight 2"></div>
+            </div>
+            <a href="gallerybedrock.html" class="cta-btn">Lihat Galeri Penuh</a>
+        </section>
+
+        <h2 class="section-title">Senarai Pemain</h2>
+        
+        <div class="grid">
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Abu3777/100"><span class="name">Abu3777</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Adam055125/100"><span class="name">Adam055125</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/AoiBlizz/100"><span class="name">AoiBlizz</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/AnakMalaysia490/100"><span class="name">AnakMalaysia490</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Boings69/100"><span class="name">Boings69</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/CAPTAIN_X_VMAX/100"><span class="name">CAPTAIN X VMAX</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/ChillBacon8730/100"><span class="name">ChillBacon8730</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/CodeJerov07/100"><span class="name">CodeJerov07</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/DanialSss8813/100"><span class="name">DanialSss8813</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/deron212891/100"><span class="name">deron212891</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Einsalvinkomi/100"><span class="name">Einsalvinkomi</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/ElianaRiqma2/100"><span class="name">ElianaRiqma2</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Erinmos/100"><span class="name">Erinmos</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Fizsgen05/100"><span class="name">Fizsgen05</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/FUENN/100"><span class="name">FUENN</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/GuildTown/100"><span class="name">GuildTown</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Hantu5091/100"><span class="name">Hantu5091</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/HarzVyl/100"><span class="name">HarzVyl</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/HAZARD61210/100"><span class="name">HAZARD61210</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/HEIZOUU8851/100"><span class="name">HEIZOUU8851</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Hatsuza/100"><span class="name">Hatsuza</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/HybridHope00/100"><span class="name">HybridHope00</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/HyperGreek03361/100"><span class="name">HyperGreek03361</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Icy4sy/100"><span class="name">Icy4sy</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/ImanR25/100"><span class="name">ImanR25</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/IzzTheNooby/100"><span class="name">IzzTheNooby</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/iamtsume/100"><span class="name">iamtsume</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Jhon_Thery/100"><span class="name">Jhon Thery</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/kaelennnnnn/100"><span class="name">kaelennnnnn</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Karipapdap/100"><span class="name">Karipapdap</span><div class="meta">Founder</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Kuceheng/100"><span class="name">Kuceheng</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/KuroNeko9612/100"><span class="name">KuroNeko9612</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/MaybeItsYuzuke/100"><span class="name">MaybeItsYuzuke</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/mjn3012/100"><span class="name">mjn3012</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/MiraaTik/100"><span class="name">MiraaTik</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/MissElviraa/100"><span class="name">MissElviraa</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/MutedWave/100"><span class="name">MutedWave</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/NazzMiee/100"><span class="name">NazzMiee</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Nekoya9104/100"><span class="name">Nekoya9104</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Necrom05/100"><span class="name">Necrom05</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/NonCelery059321/100"><span class="name">NonCelery059321</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Pak_Kerr/100"><span class="name">Pak Kerr</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/PAKabu2329/100"><span class="name">PAKabu2329</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Pipitxpro/100"><span class="name">Pipitxpro</span><div class="meta">Founder</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/PorousTwo028929/100"><span class="name">PorousTwo028929</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Razaiyt/100"><span class="name">Razaiyt</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Red8960/100"><span class="name">Red8960</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/RedhairRSN/100"><span class="name">RedhairRSN</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/RAJAWALI7880/100"><span class="name">RAJAWALI7880</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Ryss7K/100"><span class="name">Ryss7K</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Sheyfrin/100"><span class="name">Sheyfrin</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/SoliiCatInMusic/100"><span class="name">SoliiCatInMusic</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Sofearose/100"><span class="name">Sofearose</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/sky_iron2694/100"><span class="name">sky iron2694</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/Taufiq9487/100"><span class="name">Taufiq9487</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/TheOnlyNabil480/100"><span class="name">TheOnlyNabil480</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/whoadams/100"><span class="name">whoadams</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/xdyaput/100"><span class="name">xdyaput</span><div class="meta">Player</div></div>
+            <div class="player-card"><img class="avatar" src="https://mc-heads.net/head/ZAMJOKER13/100"><span class="name">ZAMJOKER13</span><div class="meta">Player</div></div>
+        </div>
+
+        <div class="footer-nav">
+            <a href="index.html" class="back-btn">← Kembali ke Laman Utama</a>
+        </div>
+    </div>
+</body>
+</html>
