@@ -24,6 +24,7 @@ thekingdoms-main/
 ├── projects/                    # Server projects
 │   ├── TheKingdomsJavaSeason1/ # The Kingdoms Season 1
 │   ├── ElpikaCraft/            # ElpikaCraft (BCG+)
+│   ├── bedrock-players/        # Daftar Pemain Bedrock Edition
 │   └── playerss1/              # Player Season 1
 ├── assets/                      # Additional assets (jika diperlukan)
 ├── README.md                    # Dokumentasi proyek
